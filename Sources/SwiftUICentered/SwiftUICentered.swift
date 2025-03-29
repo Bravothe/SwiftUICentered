@@ -14,11 +14,6 @@ public struct SwiftUIPaymentSDK {
     public var itemsPurchased: [String] = []
     public var totalAmount: Double = 0.0
     public var paymentPin: String = "1234" // Hardcoded payment PIN for simplicity
-
-    // Check if the username and ID match
-    public func checkUserDetails() -> Bool {
-        return purchaserUsername == storedUsername && purchaserID == storedUserID
-    }
     
     // Function to check payment PIN
     public func validatePayment(pin: String) -> Bool {
@@ -34,9 +29,7 @@ public struct SwiftUIPaymentSDK {
     
     // Simulate a payment transaction
     public mutating func processPayment(pin: String) -> String {
-        if !checkUserDetails() {
-            return "Please sign in to proceed"
-        }
+        // We skip the check for user details since we no longer have the sign-up step
         
         // Check if the balance is sufficient
         if userBalance < getTotalAmount() {
