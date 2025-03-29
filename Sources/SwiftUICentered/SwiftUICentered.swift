@@ -1,5 +1,12 @@
+import SwiftUI
+
 public struct SwiftUICentered {
     public init() {}
+
+    // Returns the image name (to be used by the calling project)
+    public func getImageName() -> String {
+        return "evzone" // Replace with the actual image name in your resources
+    }
 
     public func getAlertTitle(for step: Int) -> String {
         // Uniform title for all steps
