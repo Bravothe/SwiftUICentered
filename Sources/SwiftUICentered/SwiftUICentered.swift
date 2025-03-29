@@ -13,14 +13,14 @@ public struct SwiftUIPaymentSDK {
     public var purchaserID: String = ""
     public var itemsPurchased: [String] = []
     public var totalAmount: Double = 0.0
-    public var paymentPin: String = ""
+    public var paymentPin: String = "1234" // Hardcoded payment PIN for simplicity
 
     // Check if the username and ID match
     public func checkUserDetails() -> Bool {
         return purchaserUsername == storedUsername && purchaserID == storedUserID
     }
     
-    // Function to check payment
+    // Function to check payment PIN
     public func validatePayment(pin: String) -> Bool {
         return pin == paymentPin // For simplicity, let's assume we verify the PIN here
     }
