@@ -1,6 +1,10 @@
-public struct SwiftUICentered {
-    public private(set) var text = "Hello, World!"
+import SwiftUI
 
-    public init() {
+public struct SwiftUICentered {
+    public init() {}
+
+    public func getName() -> String {
+        return "Thembo Allan"
     }
 }
+
