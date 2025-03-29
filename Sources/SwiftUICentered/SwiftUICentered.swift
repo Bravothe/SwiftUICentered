@@ -1,48 +1,24 @@
 import SwiftUI
 
-public struct SwiftUIPaymentSDK {
+public struct SwiftUICentered {
     public init() {}
-    
-    // Hardcoded user details
-    private let storedUsername = "john_doe"
-    private let storedUserID = "12345"
-    private var userBalance: Double = 100.0 // Example: user has a balance of $100
-    
-    // Hardcoded purchase details (this will come from the project)
-    public var purchaserUsername: String = ""
-    public var purchaserID: String = ""
-    public var itemsPurchased: [String] = []
-    public var totalAmount: Double = 0.0
-    public var paymentPin: String = "1234" // Hardcoded payment PIN for simplicity
-    
-    // Function to check payment PIN
-    public func validatePayment(pin: String) -> Bool {
-        return pin == paymentPin // For simplicity, let's assume we verify the PIN here
+
+    public func getAlertTitle(for step: Int) -> String {
+        return "EVzone Africa"
     }
-    
-    // Calculate total amount after charges
-    public func getTotalAmount() -> Double {
-        // Assuming there's a fee (e.g., 2%) for the payment
-        let fee = totalAmount * 0.02
-        return totalAmount + fee
+
+    public func getAlertMessage(for step: Int) -> String {
+        // Consistent message structure with warning tone
+        switch step {
+        case 1: return "Caution: Please proceed to verify your details. Click Next to continue."
+        case 2: return "Attention: Your name is recorded as Thembo Allan. Confirm by proceeding."
+        case 3: return "Notice: You have completed the process. Thank you for your attention."
+        default: return "Error: Invalid step detected."
+        }
     }
-    
-    // Simulate a payment transaction
-    public mutating func processPayment(pin: String) -> String {
-        // We skip the check for user details since we no longer have the sign-up step
-        
-        // Check if the balance is sufficient
-        if userBalance < getTotalAmount() {
-            return "Insufficient Funds"
-        }
-        
-        // Validate the PIN
-        if !validatePayment(pin: pin) {
-            return "Transaction Failed"
-        }
-        
-        // Deduct the amount from the user balance
-        userBalance -= getTotalAmount()
-        return "Payment Made Successfully"
+
+    public func getButtonText(for step: Int) -> String {
+        // Uniform button text logic
+        return step < 3 ? "Next" : "Finish"
     }
 }
