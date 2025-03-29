@@ -1,16 +1,9 @@
-import SwiftUI
-
 public struct SwiftUICentered {
     public init() {}
 
     public func getAlertTitle(for step: Int) -> String {
-        // Uniform title with a warning indicator
-        switch step {
-        case 1: return "Warning: Initial Step"
-        case 2: return "Warning: Name Verification"
-        case 3: return "Warning: Completion"
-        default: return "Warning: Unknown"
-        }
+        // Uniform title for all steps
+        return "Evzone Africa"
     }
 
     public func getAlertMessage(for step: Int) -> String {
